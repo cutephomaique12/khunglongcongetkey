@@ -1,12 +1,51 @@
 {
   "active": true,
-  "accounts": {
-    "YonkiVNOfficial": "yonkivnofficial"
+  "admin": {
+    "username": "YonkiVNOfficial",
+    "password": "yonkivnofficial"
+  },
+  "settings": {
+    "daily_limit": 5,
+    "bypass_api": "https://link4m.co/api-shorten/v2?api=688d0212c6e84d0e055ba168&url=",
+    "bypass_url": "https://cutephomaique12.github.io/bypass"
+  },
+  "bypass": {
+    "enabled": true,
+    "used_logs": {}
   },
   "games": {
     "ff": {
       "name": "Free Fire",
-      "keys": {}
+      "keys": {
+        "VIP-001": {
+          "type": "vip",
+          "active": true,
+          "expiry": 4750000000000,
+          "device_limit": 999,
+          "used_devices": []
+        },
+        "FREE-001": {
+          "type": "free",
+          "active": true,
+          "expiry": 4750000000000,
+          "device_limit": 3,
+          "used_devices": []
+        },
+        "TEST-001": {
+          "type": "test",
+          "active": true,
+          "expiry": 4750000000000,
+          "device_limit": 999,
+          "used_devices": []
+        },
+        "FREE1-001": {
+          "type": "free_once",
+          "active": true,
+          "expiry": 4750000000000,
+          "device_limit": 1,
+          "used_devices": []
+        }
+      }
     },
     "lq": {
       "name": "Liên Quân",
