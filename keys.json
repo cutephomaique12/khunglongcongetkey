@@ -1,0 +1,20 @@
+{
+  "active": true,
+  "accounts": {
+    "YonkiVNOfficial": "yonkivnofficial"
+  },
+  "games": {
+    "ff": {
+      "name": "Free Fire",
+      "keys": {}
+    },
+    "lq": {
+      "name": "Liên Quân",
+      "keys": {}
+    },
+    "rov": {
+      "name": "ROV",
+      "keys": {}
+    }
+  }
+}
