@@ -1,6 +1,78 @@
-<div class="section">
-    <h3>⚙️ CÀI ĐẶT VƯỢT KEY</h3>
-    <label>Giới hạn vượt/ngày: <input type="number" id="dailyLimit" value="5"></label>
-    <label>API Bypass: <input type="text" id="apiBypass" value="https://link4m.co/api-shorten/v2?api=688d0212c6e84d0e055ba168&url="></label>
-    <button onclick="updateSettings()">💾 Lưu cài đặt</button>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng Điều Khiển Quản Trị - Cấu Hình Khóa</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; padding: 20px; color: #333; }
+        .container { max-width: 600px; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto; }
+        h2 { text-align: center; color: #0056b3; }
+        .section { margin-top: 20px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fafafa; }
+        h3 { margin-top: 0; color: #555; border-bottom: 2px solid #007bff; padding-bottom: 5px; }
+        label { display: block; margin: 10px 0 5px; font-weight: bold; }
+        input[type="text"], input[type="number"], select { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; background: #28a745; color: white; border: none; padding: 12px; font-size: 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #218838; }
+        .status { margin-top: 15px; text-align: center; font-weight: bold; color: #d9534f; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>⚙️ HỆ THỐNG QUẢN LÝ KHÓA KÍCH HOẠT</h2>
+    
+    <div class="section">
+        <h3>Cài Đặt Giới Hạn Cấu Hình</h3>
+        
+        <label for="systemStatus">Trạng thái hệ thống tổng thể:</label>
+        <select id="systemStatus">
+            <option value="true">Hoạt động (Active)</option>
+            <option value="false">Bảo trì (Inactive)</option>
+        </select>
+
+        <label for="bypassStatus">Trạng thái xác thực dự phòng:</label>
+        <select id="bypassStatus">
+            <option value="true">Bật (Enabled)</option>
+            <option value="false">Tắt (Disabled)</option>
+        </select>
+
+        <label for="dailyLimit">Giới hạn số lượt/ngày:</label>
+        <input type="number" id="dailyLimit" value="5" min="1">
+
+        <label for="apiBypass">Cổng kết nối API rút gọn link (Link4m):</label>
+        <input type="text" id="apiBypass" value="https://link4m.co/api-shorten/v2?api=688d0212c6e84d0e055ba168&url=">
+        
+        <label for="bypassUrl">Đường dẫn trang đích hướng dẫn xử lý:</label>
+        <input type="text" id="bypassUrl" value="https://cutephomaique12.github.io/bypass">
+        
+        <button onclick="updateSettings()">💾 Lưu Toàn Bộ Cấu Hình</button>
+    </div>
+    
+    <div id="txtStatus" class="status"></div>
 </div>
+
+<script>
+    // Logic mẫu xử lý xuất chuỗi dữ liệu JSON để quản trị viên đồng bộ lên máy chủ lưu trữ (GitHub/Hosting)
+    function updateSettings() {
+        const statusText = document.getElementById("txtStatus");
+        
+        const configData = {
+            "active": document.getElementById("systemStatus").value === "true",
+            "settings": {
+                "daily_limit": parseInt(document.getElementById("dailyLimit").value) || 5,
+                "bypass_api": document.getElementById("apiBypass").value,
+                "bypass_url": document.getElementById("bypassUrl").value
+            },
+            "bypass": {
+                "enabled": document.getElementById("bypassStatus").value === "true",
+                "used_logs": {}
+            }
+        };
+
+        statusText.style.color = "#28a745";
+        statusText.innerText = "Đã tạo chuỗi dữ liệu! Sao chép cấu trúc JSON này cấu hình lên tệp tin từ xa của bạn.";
+        console.log("Cấu trúc JSON mới để cập nhật vào tệp tin keys.json của bạn:\n", JSON.stringify(configData, null, 2));
+    }
+</script>
+</body>
+</html>
