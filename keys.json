@@ -9,10 +9,6 @@
     "bypass_api": "https://link4m.co/api-shorten/v2?api=688d0212c6e84d0e055ba168&url=",
     "bypass_url": "https://cutephomaique12.github.io/bypass"
   },
-  "bypass": {
-    "enabled": true,
-    "used_logs": {}
-  },
   "games": {
     "ff": {
       "name": "Free Fire",
@@ -55,5 +51,9 @@
       "name": "ROV",
       "keys": {}
     }
+  },
+  "bypass": {
+    "enabled": true,
+    "used_logs": {}
   }
 }
